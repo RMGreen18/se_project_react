@@ -1,10 +1,11 @@
 .header {
 display: flex;
-justify-content: center;
+align-items: center;
+padding: 32px 0 28px;
 }
 
 .header__logo {
-
+margin-right: 24px;
 }
 
 .header__date-and-loc {
@@ -12,11 +13,13 @@ justify-content: center;
 }
 
 .header__add-btn {
-    margin-left: auto;
+margin: 0 20px 0 auto;
 }
 
 .header__user-container {
-
+display: flex;
+align-items: center;
+gap: 12px;
 }
 
 .header__user-title {
