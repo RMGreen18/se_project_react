@@ -1,0 +1,28 @@
+.header {
+display: flex;
+justify-content: center;
+}
+
+.header__logo {
+
+}
+
+.header__date-and-loc {
+
+}
+
+.header__add-btn {
+    margin-left: auto;
+}
+
+.header__user-container {
+
+}
+
+.header__user-title {
+
+}
+
+.header__user-avatar {
+
+}
