@@ -36,7 +36,7 @@ setWeatherType(temp) {
         return 'warm';
     }
     else if (temp >= 45) {
-        return 'chilly'
+        return 'cool'
     }
     else {
         return 'cold';
