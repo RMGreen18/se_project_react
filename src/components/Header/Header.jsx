@@ -9,7 +9,7 @@ function Header({ weatherData }) {
         <p className="header__date-and-loc">{ currentDate }</p>
         <button className="header__add-btn">+ Add Clothes</button>
         <div className="header__user-container">
-            <p className="header__user-title">First Last</p>
+            <p className="header__user-title">Terrence Tegegne</p>
             <img src={avatar} alt="avatar" className="header__user-avatar" />
         </div>
        
