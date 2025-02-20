@@ -39,12 +39,9 @@ export const defaultClothingItems = [
     }
   ]
 
-  const weatherApi = new WeatherApi({
+const weatherApi = new WeatherApi({
     baseUrl: 'https://api.openweathermap.org/data/2.5/weather?',
     apiKey: 'e805686b45d910ae1a41aa7492b99ea2',
     initialLat: '45.5152',
     initialLon: '-122.6784',
   });
-
-weatherApi.test();
-weatherApi.getWeatherData();

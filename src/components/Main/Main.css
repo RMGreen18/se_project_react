@@ -12,7 +12,7 @@ font-weight: 700;
 .cards__list {
 padding: 0;
 display: grid;
-grid-template-columns: repeat(auto-fit, 325px);
+grid-template-columns: repeat(auto-fit, 323px);
 margin: 0;
 gap: 18px;
 }
