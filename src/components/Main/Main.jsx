@@ -12,9 +12,7 @@ function Main({ weatherData }) {
           Today is 75&deg; F / You may want to wear:
         </p>
         <ul className="cards__list">
-          {defaultClothingItems.filter((item) => {
-            return item.weather === weatherData.type;
-          }).map((item) => {
+          {defaultClothingItems.map((item) => {
             return <ItemCard key={item._id} item={item} />;
           })}
         </ul>
@@ -23,3 +21,9 @@ function Main({ weatherData }) {
   );
 }
 export default Main;
+
+
+
+// .filter((item) => {
+//   return item.weather === weatherData.type;
+// })
