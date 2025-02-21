@@ -1,23 +1,31 @@
-import { useState } from 'react';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 import Header from "../Header/Header";
-import Main from '../Main/Main';
-import Footer from '../Footer/Footer';
-import ModalWithForm from '../ModalWithForm/ModalWithForm';
+import Main from "../Main/Main";
+import Footer from "../Footer/Footer";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function App() {
   const [weatherData, setWeatherData] = useState({ type: "cold" });
-  const [activeModal, setActiveModal] = useState("")
+  const [activeModal, setActiveModal] = useState("");
+  const handleAddClick = () => {
+    setActiveModal("add-garment")
+  }
   return (
     <>
       <div className="page">
         <div className="page__content">
-          <Header />
-          <Main weatherData={weatherData}/>
+          <Header handleAddClick={handleAddClick}/>
+          <Main weatherData={weatherData} />
           <Footer />
         </div>
-        <ModalWithForm title="New garment" name="addClothes" btnText="Add garment" activeModal={activeModal}>
-        <label htmlFor="name" className="modal__label">
+        <ModalWithForm
+          title="New garment"
+          name="addClothes"
+          btnText="Add garment"
+          activeModal={activeModal}
+        >
+          <label htmlFor="name" className="modal__label">
             Name{" "}
             <input
               type="text"
@@ -41,7 +49,8 @@ function App() {
               htmlFor="hot"
               className="modal__label modal__label_type_radio"
             >
-              <input id="hot" type="radio" className="modal__radio-input" />{""} Hot
+              <input id="hot" type="radio" className="modal__radio-input" />
+              {""} Hot
             </label>
             <label
               htmlFor="warm"
@@ -66,4 +75,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
