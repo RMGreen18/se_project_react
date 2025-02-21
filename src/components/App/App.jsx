@@ -11,6 +11,12 @@ function App() {
   const handleAddClick = () => {
     setActiveModal("add-garment")
   }
+  
+  const closeActiveModal = () => {
+    setActiveModal("");
+  }
+
+
   return (
     <>
       <div className="page">
@@ -24,6 +30,7 @@ function App() {
           name="addClothes"
           btnText="Add garment"
           activeModal={activeModal}
+          handleCloseModal={closeActiveModal}
         >
           <label htmlFor="name" className="modal__label">
             Name{" "}

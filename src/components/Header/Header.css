@@ -21,6 +21,13 @@ margin: 0 20px 0 auto;
 border: none;
 line-height: 24px;
 font-weight: 700;
+transition: opacity 0.2s linear;
+background: none;
+}
+
+.header__add-btn:hover {
+cursor: pointer;
+opacity: 60%
 }
 
 .header__user-container {

@@ -12,6 +12,7 @@
   padding: 0 19px;
   visibility: hidden;
   opacity: 0;
+  transition: visibility 0.5s 0s, opacity 0.3s ease-in-out;
 }
 
 .modal__opened {
@@ -34,6 +35,10 @@ transition: visibility 0 0.5s, opacity 0.3s ease-in-out;
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
+}
+
+.modal__close:hover {
+  cursor: pointer;
 }
 
 .modal__content {
