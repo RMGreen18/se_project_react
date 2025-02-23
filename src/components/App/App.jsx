@@ -13,7 +13,7 @@ function App() {
   const [weatherData, setWeatherData] = useState({
     type: "",
     temp: { F: 999, C: 999 },
-    city: ""
+    city: "",
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
@@ -32,19 +32,18 @@ function App() {
   const closeActiveModal = () => {
     setActiveModal("");
   };
-  
+
   useEffect(() => {
-    debugger;
     getWeather(coordinates, apiKey)
       .then((data) => {
         const processedData = processWeatherData(data);
         setWeatherData(processedData);
-        console.log(weatherData);
       })
       .catch((err) => {
         console.error(err);
       });
   }, []);
+
   return (
     <>
       <div className="page">

@@ -16,7 +16,7 @@ export const processWeatherData = (data) => {
   result.city = data.name;
   result.temp = { F: data.main.temp };
   result.type = getWeatherType(data.main.temp.F);
-  result.condition = data.weather[0].main.toLowerCase;
+  result.condition = data.weather[0].main.toLowerCase();
   result.isDay = isDay(data.dt, data.sys);
   return result;
 };

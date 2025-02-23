@@ -3,6 +3,7 @@ import { weatherOptions } from "../../utils/constants";
 
 function WeatherCard({ weatherData }) {
   const processedOption = weatherOptions.filter((option) => {
+    console.log(option.day, weatherData.isDay, option.condition, weatherData.condition);
     return (
       option.day === weatherData.isDay &&
       option.condition === weatherData.condition
