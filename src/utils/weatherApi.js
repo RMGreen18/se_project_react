@@ -1,43 +1,36 @@
-export default class WeatherApi {
-    constructor(options) {
-        this._baseUrl = options.baseUrl;
-        this._headers = options.headers;
-        this._apiKey = options.apiKey;
-        this._initialLon = options.initialLon;
-        this._initialLat = options.initialLat;
+export const getWeather = ({ lat, lon }, apiKey) => {
+  return fetch(
+    ` https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`,
+    { method: "GET" }
+  ).then((res) => {
+    if (res.ok) {
+      return res.json();
+    } else {
+      return Promise.reject(`Error: ${res.status}`);
     }
+  });
+};
 
-    _checkRes(res) {
-        if (res.ok) {
-            return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-    }
+export const processWeatherData = (data) => {
+  const result = {};
+  result.city = data.name;
+  result.temp = { F: data.main.temp };
+  result.type = getWeatherType(data.main.temp.F);
+  result.condition = data.weather[0].main.toLowerCase;
+  result.isDay = isDay(data.dt, data.sys);
+  return result;
+};
 
-    test () {
-        console.log(this._baseUrl);
-        console.log(this._headers);
-        console.log(this._apiKey);
-        console.log(this._initialLat);
-        console.log(this._initialLon);
-    }
-
-getWeatherData() {
-    return fetch(`${this._baseUrl}lat=${this._initialLat}&lon=${this._initialLon}&units=imperial&appid=${this._apiKey}`, {
-        method: 'GET',
-    }).then(this._checkRes).then((res) => {console.log((res))});
+const isDay = (currentTime, {sunrise, sunset}) => {
+return currentTime >= sunrise && currentTime <= sunset;
 }
 
-setWeatherType(temp) {
-    if(temp >= 80) {
+const getWeatherType = (temp) => {
+    if (temp >= 86) {
         return 'hot';
-    }
-    else if (temp >= 60) {
+      } else if (temp >= 66 && temp <86) {
         return 'warm';
-    }
-    else {
+      } else {
         return 'cold';
-    }
-}
-
+      }
 }
