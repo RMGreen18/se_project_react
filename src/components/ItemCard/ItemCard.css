@@ -2,9 +2,12 @@
 position: relative;
 display: flex;
 justify-content: center;
-/* background-color: blue; */
 max-height: 323px;
 max-width: 323px;
+}
+
+.item__container:hover {
+    cursor: pointer;
 }
 
 .item__name {
