@@ -14,7 +14,7 @@ export const getWeather = ({ lat, lon }, apiKey) => {
 export const processWeatherData = (data) => {
   const result = {};
   result.city = data.name;
-  result.temp = { F: data.main.temp };
+  result.temp = { F: Math.round(data.main.temp) };
   result.type = getWeatherType(data.main.temp.F);
   result.condition = data.weather[0].main.toLowerCase();
   result.isDay = isDay(data.dt, data.sys);
