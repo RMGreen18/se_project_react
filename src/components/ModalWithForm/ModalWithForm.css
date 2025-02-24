@@ -15,10 +15,10 @@
   transition: visibility 0.5s 0s, opacity 0.3s ease-in-out;
 }
 
-.modal__opened {
-opacity: 1;
-visibility: visible;
-transition: visibility 0 0.5s, opacity 0.3s ease-in-out;
+.modal_opened {
+  opacity: 1;
+  visibility: visible;
+  transition: visibility 0 0.5s, opacity 0.3s ease-in-out;
 }
 
 .modal__title {

@@ -20,7 +20,7 @@
 }
 
 .modal__close-image:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .modal__image {
@@ -40,6 +40,6 @@
 }
 
 .modal__footer-info {
-    margin: 0;
-    font-size: 20px;
+  margin: 0;
+  font-size: 20px;
 }
