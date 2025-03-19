@@ -89,7 +89,7 @@ function App() {
       value={{ currentTempUnit, handleToggleSwitchChange }}
       >
       <div className="page__content">
-        <Header handleAddClick={handleAddClick} weatherData={weatherData}/>
+        <Header handleAddClick={handleAddClick} weatherData={weatherData} />
         <Main weatherData={weatherData} handleCardClick={handleCardClick} />
         <Footer />
       </div>
