@@ -1,10 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 import "./App.css";
+
+//Page Components
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
+
+//Contexts
+import { CurrentTempUnitContext } from "../../contexts/CurrentTempUnitContext";
+
+//Utils
 import { getWeather, processWeatherData } from "../../utils/weatherApi";
 import { coordinates, apiKey } from "../../utils/constants";
 
@@ -35,7 +42,6 @@ import { coordinates, apiKey } from "../../utils/constants";
 function App() {
   //Hooks
   const [currentTempUnit, setCurrentTempUnit] = useState('F');
-   const [checked, setChecked] = useState(false);
    
   const [weatherData, setWeatherData] = useState({
     type: "",
@@ -44,6 +50,7 @@ function App() {
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+
 
   //Handlers
   const handleCardClick = (card) => {
@@ -54,10 +61,13 @@ function App() {
   const handleAddClick = () => {
     setActiveModal("add-garment");
   };
-
-  const handleCheck = () => {
-    setChecked(!checked);
-  };
+  
+  const handleToggleSwitchChange = () => {
+  currentTempUnit === 'F'
+    ? setCurrentTempUnit('C')
+    : setCurrentTempUnit('F');
+};
+  
 
   //Functions
   const closeActiveModal = () => {
@@ -75,11 +85,15 @@ function App() {
 
   return (
     <div className="page">
+      <CurrentTempUnitContext.Provider
+      value={{ currentTempUnit, handleToggleSwitchChange }}
+      >
       <div className="page__content">
         <Header handleAddClick={handleAddClick} weatherData={weatherData}/>
         <Main weatherData={weatherData} handleCardClick={handleCardClick} />
         <Footer />
       </div>
+      </CurrentTempUnitContext.Provider>
       <ModalWithForm
         title="New garment"
         name="add-garment"
