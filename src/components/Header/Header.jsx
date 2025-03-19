@@ -1,16 +1,15 @@
 import { useState } from "react";
 import "./Header.css";
-import ToggleSwitch from "../ToggleSwitch/ToggleSwitch"
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.png";
 
-function Header({ handleAddClick, weatherData}) {
+function Header({ handleAddClick, weatherData }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
 
- 
   return (
     <header className="header">
       <img src={logo} alt="WTWR logo " className="header__logo" />

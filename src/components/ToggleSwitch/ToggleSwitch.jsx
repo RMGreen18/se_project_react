@@ -5,7 +5,9 @@ import { CurrentTempUnitContext } from "../../contexts/CurrentTempUnitContext";
 import { useContext } from "react";
 
 function ToggleSwitch() {
-const handleUnitChange = useContext(CurrentTempUnitContext).handleToggleSwitchChange;
+  const handleUnitChange = useContext(
+    CurrentTempUnitContext
+  ).handleToggleSwitchChange;
 
   return (
     <div className="toggle-switch">

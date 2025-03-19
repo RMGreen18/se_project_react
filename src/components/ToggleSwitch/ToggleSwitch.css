@@ -19,7 +19,7 @@
   border-radius: 20px;
   margin: 0;
   cursor: pointer;
-  transition: border-color .3s;
+  transition: border-color 0.3s;
 }
 
 .toggle-switch__label .toggle-switch__slider {
@@ -32,31 +32,31 @@
   width: 28px;
   background-color: #000;
   border-radius: 20px;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .toggle-switch__unit {
-font-size: 14px;
-line-height: 100%;
-position: absolute;
-z-index: 999;
-transition: opacity .3s ease, color .5s ease;
+  font-size: 14px;
+  line-height: 100%;
+  position: absolute;
+  z-index: 999;
+  transition: opacity 0.3s ease, color 0.5s ease;
 }
 
 .toggle-switch__unit_f {
   color: #fff;
   opacity: 100%;
-    top: 6px;
-    left: 7px;
-    bottom: 0;
+  top: 6px;
+  left: 7px;
+  bottom: 0;
 }
 
 .toggle-switch__unit_c {
   color: #000;
   opacity: 50%;
-    top: 6px;
-    right: 7px;
-    bottom: 0;
+  top: 6px;
+  right: 7px;
+  bottom: 0;
 }
 
 .toggle-switch__input:checked + .toggle-switch__label .toggle-switch__slider {
@@ -65,25 +65,26 @@ transition: opacity .3s ease, color .5s ease;
 }
 
 .toggle-switch__label:hover {
-  border-color:  #000;
+  border-color: #000;
 }
 
 .toggle-switch__label:hover .toggle-switch__slider {
-width: 60%;
+  width: 60%;
 }
-
 
 .toggle-switch__label:hover .toggle-switch__unit_c {
   opacity: 100%;
 }
 
-.toggle-switch__input:checked + .toggle-switch__label:hover .toggle-switch__unit_f {
+.toggle-switch__input:checked
+  + .toggle-switch__label:hover
+  .toggle-switch__unit_f {
   opacity: 100%;
 }
 
 .toggle-switch__input:checked + .toggle-switch__label .toggle-switch__unit_c {
   color: #fff;
-  opacity: 100%
+  opacity: 100%;
 }
 
 .toggle-switch__input:checked + .toggle-switch__label .toggle-switch__unit_f {
