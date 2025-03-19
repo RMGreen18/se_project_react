@@ -1,0 +1,92 @@
+.toggle-switch {
+  margin: 0 0 0 auto;
+  display: flex;
+}
+
+.toggle-switch__input {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.toggle-switch__label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 24px;
+  width: 52px;
+  border: 2px solid #7e7e7e;
+  border-radius: 20px;
+  margin: 0;
+  cursor: pointer;
+  transition: border-color .3s;
+}
+
+.toggle-switch__label .toggle-switch__slider {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  bottom: 0;
+  content: "";
+  height: 28px;
+  width: 28px;
+  background-color: #000;
+  border-radius: 20px;
+  transition: .5s;
+}
+
+.toggle-switch__unit {
+font-size: 14px;
+line-height: 100%;
+position: absolute;
+z-index: 999;
+transition: opacity .3s ease, color .5s ease;
+}
+
+.toggle-switch__unit_f {
+  color: #fff;
+  opacity: 100%;
+    top: 6px;
+    left: 7px;
+    bottom: 0;
+}
+
+.toggle-switch__unit_c {
+  color: #000;
+  opacity: 50%;
+    top: 6px;
+    right: 7px;
+    bottom: 0;
+}
+
+.toggle-switch__input:checked + .toggle-switch__label .toggle-switch__slider {
+  left: calc(100% + 2px);
+  transform: translateX(-100%);
+}
+
+.toggle-switch__label:hover {
+  border-color:  #000;
+}
+
+.toggle-switch__label:hover .toggle-switch__slider {
+width: 60%;
+}
+
+
+.toggle-switch__label:hover .toggle-switch__unit_c {
+  opacity: 100%;
+}
+
+.toggle-switch__input:checked + .toggle-switch__label:hover .toggle-switch__unit_f {
+  opacity: 100%;
+}
+
+.toggle-switch__input:checked + .toggle-switch__label .toggle-switch__unit_c {
+  color: #fff;
+  opacity: 100%
+}
+
+.toggle-switch__input:checked + .toggle-switch__label .toggle-switch__unit_f {
+  color: #000;
+  opacity: 50%;
+}

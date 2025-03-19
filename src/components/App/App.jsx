@@ -8,8 +8,35 @@ import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, processWeatherData } from "../../utils/weatherApi";
 import { coordinates, apiKey } from "../../utils/constants";
 
+
+//NOTES
+//create currentTemperatureUnit state
+  //pass "F" as initial value
+
+//create context object
+  //create contexts folder
+  //create CurrentTemperatureContext.js
+
+//get celcius value from API
+  // weather.temperature.F = data.main.temp;
+  // weather.temperature.C = Math.round((data.main.temp - 32) * 5/9);
+
+//use context in:
+  //weathercard
+  //toggleswitch
+  //main
+
+//add profile route
+  //create profile component
+  //install react router
+  //configure routes
+  //add navigation links to header
+
 function App() {
   //Hooks
+  const [currentTempUnit, setCurrentTempUnit] = useState('F');
+   const [checked, setChecked] = useState(false);
+   
   const [weatherData, setWeatherData] = useState({
     type: "",
     temp: { F: 999, C: 999 },
@@ -26,6 +53,10 @@ function App() {
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
+  };
+
+  const handleCheck = () => {
+    setChecked(!checked);
   };
 
   //Functions
@@ -45,7 +76,7 @@ function App() {
   return (
     <div className="page">
       <div className="page__content">
-        <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+        <Header handleAddClick={handleAddClick} weatherData={weatherData} checked={checked} handleCheck={handleCheck} />
         <Main weatherData={weatherData} handleCardClick={handleCardClick} />
         <Footer />
       </div>
@@ -122,5 +153,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
