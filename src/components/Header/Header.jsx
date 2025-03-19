@@ -4,7 +4,7 @@ import ToggleSwitch from "../ToggleSwitch/ToggleSwitch"
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.png";
 
-function Header({ handleAddClick, weatherData, checked, handleCheck }) {
+function Header({ handleAddClick, weatherData}) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -17,8 +17,7 @@ function Header({ handleAddClick, weatherData, checked, handleCheck }) {
       <p className="header__date-and-loc">
         {currentDate}, {weatherData.city}
       </p>
-      <ToggleSwitch 
-      checked={ checked } onChange={ handleCheck } />
+      <ToggleSwitch />
       <button
         onClick={handleAddClick}
         type="button"

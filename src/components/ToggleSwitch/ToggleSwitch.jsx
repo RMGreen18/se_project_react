@@ -3,12 +3,10 @@
 
 import "./ToggleSwitch.css";
 
-function ToggleSwitch({ checked, onChange }) {
+function ToggleSwitch() {
   return (
     <div className="toggle-switch">
       <input
-        checked={checked}
-        onChange={onChange}
         type="checkbox"
         id="toggleSwitch"
         className="toggle-switch__input"
