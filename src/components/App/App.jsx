@@ -1,4 +1,8 @@
+//React
 import { useState, useEffect, createContext } from "react";
+import { Routes, Route } from "react-router-dom";
+
+//Styles
 import "./App.css";
 
 //Page Components
@@ -90,7 +94,10 @@ function App() {
       >
       <div className="page__content">
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-        <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+        <Routes>
+          <Route path="/" element={  <Main weatherData={weatherData} handleCardClick={handleCardClick} /> } ></Route>
+          <Route path="/profile" element={<p>PROFILE</p> } ></Route>
+        </Routes>
         <Footer />
       </div>
       </CurrentTempUnitContext.Provider>
