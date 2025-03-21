@@ -6,6 +6,14 @@ line-height: 24px;
 font-weight: 700;
 }
 
+.header__link {
+    text-decoration: none;
+}
+
+.header__link:visited {
+    color: inherit;
+}
+
 .header__logo {
 margin-right: 24px;
 }
