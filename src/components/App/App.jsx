@@ -8,6 +8,7 @@ import "./App.css";
 //Page Components
 import Header from "../Header/Header";
 import Main from "../Main/Main";
+import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
@@ -19,34 +20,33 @@ import { CurrentTempUnitContext } from "../../contexts/CurrentTempUnitContext";
 import { getWeather, processWeatherData } from "../../utils/weatherApi";
 import { coordinates, apiKey } from "../../utils/constants";
 
-
 //NOTES
 //create currentTemperatureUnit state
-  //pass "F" as initial value
+//pass "F" as initial value
 
 //create context object
-  //create contexts folder
-  //create CurrentTemperatureContext.js
+//create contexts folder
+//create CurrentTemperatureContext.js
 
 //get celcius value from API
-  // weather.temperature.F = data.main.temp;
-  // weather.temperature.C = Math.round((data.main.temp - 32) * 5/9);
+// weather.temperature.F = data.main.temp;
+// weather.temperature.C = Math.round((data.main.temp - 32) * 5/9);
 
 //use context in:
-  //weathercard
-  //toggleswitch
-  //main
+//weathercard
+//toggleswitch
+//main
 
 //add profile route
-  //create profile component
-  //install react router
-  //configure routes
-  //add navigation links to header
+//create profile component
+//install react router
+//configure routes
+//add navigation links to header
 
 function App() {
   //Hooks
-  const [currentTempUnit, setCurrentTempUnit] = useState('F');
-   
+  const [currentTempUnit, setCurrentTempUnit] = useState("F");
+
   const [weatherData, setWeatherData] = useState({
     type: "",
     temp: { F: 999, C: 999 },
@@ -54,7 +54,6 @@ function App() {
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
-
 
   //Handlers
   const handleCardClick = (card) => {
@@ -65,13 +64,10 @@ function App() {
   const handleAddClick = () => {
     setActiveModal("add-garment");
   };
-  
+
   const handleToggleSwitchChange = () => {
-  currentTempUnit === 'F'
-    ? setCurrentTempUnit('C')
-    : setCurrentTempUnit('F');
-};
-  
+    currentTempUnit === "F" ? setCurrentTempUnit("C") : setCurrentTempUnit("F");
+  };
 
   //Functions
   const closeActiveModal = () => {
@@ -90,16 +86,24 @@ function App() {
   return (
     <div className="page">
       <CurrentTempUnitContext.Provider
-      value={{ currentTempUnit, handleToggleSwitchChange }}
+        value={{ currentTempUnit, handleToggleSwitchChange }}
       >
-      <div className="page__content">
-        <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-        <Routes>
-          <Route path="/" element={  <Main weatherData={weatherData} handleCardClick={handleCardClick} /> } ></Route>
-          <Route path="/profile" element={<p>PROFILE</p> } ></Route>
-        </Routes>
-        <Footer />
-      </div>
+        <div className="page__content">
+          <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Main
+                  weatherData={weatherData}
+                  handleCardClick={handleCardClick}
+                />
+              }
+            ></Route>
+            <Route path="/profile" element={<Profile />}></Route>
+          </Routes>
+          <Footer />
+        </div>
       </CurrentTempUnitContext.Provider>
       <ModalWithForm
         title="New garment"
@@ -174,6 +178,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;

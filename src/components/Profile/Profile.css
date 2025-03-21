@@ -1,0 +1,13 @@
+.profile {
+    display: flex;
+    gap: 116px;
+}
+
+.sidebar {
+    width: 230px;
+
+}
+
+.clothes-section {
+    flex:1;
+}
