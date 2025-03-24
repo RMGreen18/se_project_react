@@ -14,12 +14,13 @@
   margin: 0 20px 0 0;
 }
 
-.clothes-section__header-button {
+.clothes-section__header-btn {
   border: none;
   color: #000;
   opacity: 60%;
   font-size: 20px;
   padding: 0;
+  cursor: pointer;
 }
 
 .clothes-section__list {
