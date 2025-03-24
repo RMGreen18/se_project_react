@@ -12,19 +12,25 @@ export default class Api {
 
   getItems() {
     return fetch(`${this._baseUrl}/items`).then(this._checkRes);
-  };
+  }
 
-  addItem = ({itemName, imageUrl, weatherType, newId}) => {
+  addItem = ({ itemName, imageUrl, weatherType }) => {
     return fetch(`${this._baseUrl}/items`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         name: itemName,
         weather: weatherType,
         imageUrl: imageUrl,
-      })
+      }),
+    }).then(this._checkRes);
+  };
+
+  removeItem = (item) => {
+    return fetch(`${this._baseUrl}/items/${item._id}`, {
+      method: "DELETE",
     }).then(this._checkRes);
   };
 }

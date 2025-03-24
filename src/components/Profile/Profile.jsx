@@ -2,9 +2,8 @@ import "./Profile.css";
 
 import SideBar from "../SideBar/SideBar";
 import ClothesSection from "../ClothesSection/ClothesSection";
-import AddItemModal from "../AddItemModal/AddItemModal";
 
-function Profile({ onCardClick, onAddClick }) {
+function Profile({ onCardClick, onAddClick, clothingItems }) {
   return (
     <div className="profile">
       <section className="sidebar">
@@ -13,7 +12,11 @@ function Profile({ onCardClick, onAddClick }) {
       </section>
       <section className="clothes-section">
         {" "}
-        <ClothesSection onCardClick={onCardClick} onAddClick={onAddClick}/>
+        <ClothesSection
+          onCardClick={onCardClick}
+          onAddClick={onAddClick}
+          clothingItems={clothingItems}
+        />
       </section>
     </div>
   );

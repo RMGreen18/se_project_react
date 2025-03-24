@@ -14,8 +14,9 @@ export const getWeather = ({ lat, lon }, apiKey) => {
 export const processWeatherData = (data) => {
   const result = {};
   result.city = data.name;
-  result.temp = { F: Math.round(data.main.temp),
-    C: Math.round((data.main.temp - 32) * 5/9)
+  result.temp = {
+    F: Math.round(data.main.temp),
+    C: Math.round(((data.main.temp - 32) * 5) / 9),
   };
   result.type = getWeatherType(data.main.temp.F);
   result.condition = data.weather[0].main.toLowerCase();
@@ -23,16 +24,16 @@ export const processWeatherData = (data) => {
   return result;
 };
 
-const isDay = (currentTime, {sunrise, sunset}) => {
-return currentTime >= sunrise && currentTime <= sunset;
-}
+const isDay = (currentTime, { sunrise, sunset }) => {
+  return currentTime >= sunrise && currentTime <= sunset;
+};
 
 const getWeatherType = (temp) => {
-    if (temp >= 86) {
-        return 'hot';
-      } else if (temp >= 66 && temp <86) {
-        return 'warm';
-      } else {
-        return 'cold';
-      }
-}
+  if (temp >= 86) {
+    return "hot";
+  } else if (temp >= 66 && temp < 86) {
+    return "warm";
+  } else {
+    return "cold";
+  }
+};

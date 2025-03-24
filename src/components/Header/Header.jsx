@@ -14,25 +14,21 @@ function Header({ onAddClick, weatherData }) {
   return (
     <header className="header">
       <Link to="/" className="header__link">
-      <img src={logo} alt="WTWR logo " className="header__logo" />
+        <img src={logo} alt="WTWR logo " className="header__logo" />
       </Link>
-  
+
       <p className="header__date-and-loc">
         {currentDate}, {weatherData.city}
       </p>
       <ToggleSwitch />
-      <button
-        onClick={onAddClick}
-        type="button"
-        className="header__add-btn"
-      >
+      <button onClick={onAddClick} type="button" className="header__add-btn">
         + Add Clothes
       </button>
       <Link to="/profile" className="header__link">
-      <div className="header__user-container">
-        <p className="header__user-title">Terrence Tegegne</p>
-        <img src={avatar} alt="avatar" className="header__user-avatar" />
-      </div>
+        <div className="header__user-container">
+          <p className="header__user-title">Terrence Tegegne</p>
+          <img src={avatar} alt="avatar" className="header__user-avatar" />
+        </div>
       </Link>
     </header>
   );

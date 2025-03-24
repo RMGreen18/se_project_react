@@ -1,11 +1,11 @@
 .page {
- background-color: #f3f3f3;
- font-family: "Cabinet Grotesk", "Arial", "sans-serif";
+  background-color: #f3f3f3;
+  font-family: "Cabinet Grotesk", "Arial", "sans-serif";
 }
 
 .page__content {
-    max-width: 1360px;
-    margin: 0 auto;
-    min-height: 100vh;
-    padding: 0 20px;
+  max-width: 1360px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 0 20px;
 }

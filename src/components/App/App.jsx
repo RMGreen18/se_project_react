@@ -10,33 +10,18 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemModal from "../ItemModal/ItemModal";
+import DeleteConfirmModal from "../DeleteConfirmModal/DeleteConfirmModal";
 
 //Contexts
 import { CurrentTempUnitContext } from "../../contexts/CurrentTempUnitContext";
 
 //Utils
 import { getWeather, processWeatherData } from "../../utils/weatherApi";
-import {
-  coordinates,
-  apiKey,
-} from "../../utils/constants";
-
-//API
-import Api from "../../utils/api";
-
-
-//use context in:
-//weathercard
-//toggleswitch
-//main
+import { coordinates, apiKey, clothingApi } from "../../utils/constants";
 
 function App() {
-
-  const clothingApi = new Api();
-
   //Hooks
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
   const [weatherData, setWeatherData] = useState({
@@ -52,10 +37,15 @@ function App() {
   const handleCardClick = (card) => {
     setActiveModal("image-preview");
     setSelectedCard(card);
+    console.log("Slected card is:", card);
   };
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
+  };
+
+  const handleDeleteClick = () => {
+    setActiveModal("delete-confirm");
   };
 
   const handleToggleSwitchChange = () => {
@@ -63,11 +53,39 @@ function App() {
   };
 
   const handleAddModalSubmit = ({ itemName, imageUrl, weatherType }) => {
-    const newId = Math.max(...clothingItems.map((item) => item._id)) + 1;
-    clothingApi.addItem({ itemName, imageUrl, weatherType}).then((addedItem) => {
-      setClothingItems([addedItem, ...clothingItems])
-      closeActiveModal();
-    }).catch(console.error);
+    clothingApi
+      .addItem({ itemName, imageUrl, weatherType })
+      .then((addedItem) => {
+        setClothingItems([addedItem, ...clothingItems]);
+        closeActiveModal();
+      })
+      .catch(console.error);
+  };
+
+  const handleDeleteModalSubmit = () => {
+    console.log("modal received card:", selectedCard);
+    console.log("delete confirm submitted");
+    console.log("Selected card id:", selectedCard._id, typeof selectedCard._id);
+    console.log(
+      "All items:",
+      clothingItems[0]._id,
+      typeof clothingItems[0]._id
+    );
+    closeActiveModal();
+    clothingApi
+      .removeItem(selectedCard)
+      .then((res) => {
+        const filteredItems = clothingItems.filter((item) => {
+          console.log(item._id);
+          return item._id !== selectedCard._id;
+        });
+        return filteredItems;
+      })
+      .then((data) => {
+        setClothingItems(data);
+        closeActiveModal();
+      })
+      .catch(console.error);
   };
 
   //Functions
@@ -75,7 +93,7 @@ function App() {
     setActiveModal("");
   };
 
-//Setting weather data
+  //Setting weather data
   useEffect(() => {
     getWeather(coordinates, apiKey)
       .then((data) => {
@@ -85,10 +103,10 @@ function App() {
       .catch(console.error);
   }, []);
 
-
   //Setting clothing items
   useEffect(() => {
-    clothingApi.getItems()
+    clothingApi
+      .getItems()
       .then((data) => {
         setClothingItems(data);
       })
@@ -119,6 +137,7 @@ function App() {
                 <Profile
                   onCardClick={handleCardClick}
                   onAddClick={handleAddClick}
+                  clothingItems={clothingItems}
                 />
               }
             ></Route>
@@ -135,7 +154,14 @@ function App() {
         name="image-preview"
         isOpen={activeModal === "image-preview"}
         card={selectedCard}
+        onDeleteClick={handleDeleteClick}
         onClose={closeActiveModal}
+      />
+      <DeleteConfirmModal
+        name="delete-confirm"
+        isOpen={activeModal === "delete-confirm"}
+        onClose={closeActiveModal}
+        onDelete={handleDeleteModalSubmit}
       />
     </div>
   );

@@ -1,20 +1,18 @@
 .cards {
-
 }
 
 .cards__text {
-padding: 40px 0 34px;
-margin: 0;
-font-size: 20px;
-line-height: normal;
-font-weight: 700;
+  padding: 40px 0 34px;
+  margin: 0;
+  font-size: 20px;
+  line-height: normal;
+  font-weight: 700;
 }
 
 .cards__list {
-padding: 0;
-display: grid;
-grid-template-columns: repeat(auto-fit, 323px);
-margin: 0;
-gap: 18px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 323px);
+  margin: 0;
+  gap: 18px;
 }
-

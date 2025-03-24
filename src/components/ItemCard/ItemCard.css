@@ -1,35 +1,35 @@
 .item__container {
-position: relative;
-display: flex;
-justify-content: center;
-max-height: 323px;
-max-width: 323px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  max-height: 323px;
+  max-width: 323px;
 }
 
 .item__container:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .item__name {
-position: absolute;
-color: rgba(0, 0, 0, .6);
-text-align: center;
-vertical-align: middle;
-font-size: 16px;
-line-height: 24px;
-background-color: #FFF;
-width: 73px;
-height: 24px;
-border-radius: 4px;
-padding: 0px;
-margin: 15px 0 0 ;
+  position: absolute;
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  vertical-align: middle;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: #fff;
+  width: 73px;
+  height: 24px;
+  border-radius: 4px;
+  padding: 0px;
+  margin: 15px 0 0;
 }
 
 .item__image {
-object-fit: contain;
-overflow: hidden;
-border: solid 1px rgba(0, 0, 0, .3);
-border-radius: 19px;
-max-height: 323px;
-max-width: 323px;
+  object-fit: contain;
+  overflow: hidden;
+  border: solid 1px rgba(0, 0, 0, 0.3);
+  border-radius: 19px;
+  max-height: 323px;
+  max-width: 323px;
 }

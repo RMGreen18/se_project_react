@@ -23,6 +23,7 @@ function Main({ weatherData, onCardClick, clothingItems }) {
               return (
                 <ItemCard
                   key={item._id}
+                  id={item._id}
                   item={item}
                   onCardClick={onCardClick}
                 />
