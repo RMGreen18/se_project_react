@@ -71,7 +71,6 @@ function App() {
       clothingItems[0]._id,
       typeof clothingItems[0]._id
     );
-    closeActiveModal();
     clothingApi
       .removeItem(selectedCard)
       .then((res) => {
@@ -92,6 +91,23 @@ function App() {
   const closeActiveModal = () => {
     setActiveModal("");
   };
+
+  //Escape Listener
+  useEffect(() => {
+    if (!activeModal) return;
+
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal]);
 
   //Setting weather data
   useEffect(() => {
